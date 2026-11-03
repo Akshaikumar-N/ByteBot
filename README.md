@@ -1,6 +1,6 @@
 # ByteBot
 
-**ByteBot** is a decoder-only language model built from scratch in
+**ByteBot** is a 125M Parameter decoder-only language model built from scratch in
 PyTorch. This repository documents the data preparation, tokenizer
 training, model architecture, pretraining, retraining, and inference
 workflow. A public Kaggle inference notebook is provided so others can
@@ -22,7 +22,7 @@ You can edit the prompt and generation settings to experiment.
 
 The project was developed in stages:
 
-1.  **Corpus preparation** -- source datasets were downloaded/streamed
+1.  **Corpus preparation** -- source datasets were streamed
     from Hugging Face, shuffled, filtered, and combined into text files.
 2.  **Tokenizer training** -- a byte-level BPE tokenizer was trained on
     a sample of the prepared corpus and saved as `tokenizer.json`.
@@ -246,20 +246,7 @@ The model uses a maximum context length of 1,024 tokens. During
 generation, the engine feeds the most recent 1,024 tokens to the model.
 
 ## Important notes
-
--   The model checkpoint and tokenizer must match. Use the tokenizer
-    trained for this model.
--   The inference engine currently uses fixed architecture settings; if
-    the architecture changes, update the configuration in `engine.py` as
-    well.
--   The public Kaggle notebook may require a Kaggle account and access
-    to the attached input datasets.
+-   The public Kaggle notebook may require a Kaggle account.
 -   The project is shared for experimentation and learning. No claim is
     made that ByteBot matches the quality or capabilities of large
     instruction-tuned language models.
-
-## Acknowledgements
-
-The corpus uses publicly available datasets hosted on Hugging Face.
-Please refer to each dataset's own page for its license, terms of use,
-and attribution requirements before redistributing any derived data.
